@@ -1,0 +1,138 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "jhipster": {
+      "root": "",
+      "sourceRoot": "src/main/webapp",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "customWebpackConfig": {
+              "path": "./webpack/webpack.custom.js"
+            },
+            "outputPath": "target/classes/static",
+            "index": "src/main/webapp/index.html",
+            "main": "src/main/webapp/app/app.main.ts",
+            "polyfills": "src/main/webapp/app/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/main/webapp/content",
+              "src/main/webapp/favicon.ico",
+              { "glob": "{css,lib}/*", "input": "./node_modules/swagger-ui/dist", "output": "swagger-ui/dist" },
+              {
+                "glob": "swagger-ui.min.js",
+                "input": "./node_modules/swagger-ui/dist/",
+                "output": "swagger-ui/dist/"
+              },
+              { "glob": "**/*", "input": "./src/main/webapp/swagger-ui/", "output": "swagger-ui" }
+            ],
+            "styles": ["src/main/webapp/content/scss/global.scss", "src/main/webapp/content/scss/vendor.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "browserTarget": "jhipster:build",
+            "proxyConfig": "./webpack/proxy.conf.js"
+          }
+        },
+        "server": {
+          "builder": "@angular-builders/custom-webpack:server",
+          "options": {
+            "customWebpackConfig": {
+              "path": "./webpack/webpack.server.js"
+            },
+            "outputPath": "target/classes/static/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "jhipster:build",
+            "serverTarget": "jhipster:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "jhipster:build:production",
+              "serverTarget": "jhipster:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "jhipster:build:production",
+            "serverTarget": "jhipster:server:production",
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {}
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "skipTests": true,
+          "style": "scss"
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "prefix": "jhi"
+    }
+  },
+  "defaultProject": "jhipster",
+  "cli": {
+    "packageManager": "npm"
+  }
+}

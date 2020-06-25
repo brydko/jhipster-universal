@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app-server",
+    "module": "commonjs",
+    "types": []
+  },
+  "files": ["src/main/webapp/app/app.main.server.ts", "server.ts"],
+  "angularCompilerOptions": {
+    "entryModule": "./src/main/webapp/app/app.server.module#JhipsterAppServerModule"
+  }
+}
