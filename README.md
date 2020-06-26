@@ -50,7 +50,7 @@ app.module.ts, app.server.module.ts, app.main.server.ts, tsconfig.server.json --
 
 - **angular.json**
 
-Before adding a server target to **angular.json**, jhipster project was converted to Angular CLI. The required changes may be found in the [PR #10624](<(https://github.com/jhipster/generator-jhipster/pull/10624)>). After this, at least two new targets should be added to **angular.json**: server, serve-ssr and, optionally, prerender.
+Before adding a server target to **angular.json**, jhipster project was converted to Angular CLI. The required changes may be found in the [PR #10624](https://github.com/jhipster/generator-jhipster/pull/10624). After this, at least two new targets should be added to **angular.json**: server, serve-ssr and, optionally, prerender.
 
 - **server.ts**
 
