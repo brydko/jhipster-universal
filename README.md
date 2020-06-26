@@ -4,20 +4,20 @@ Experimental JHipster application with Angular Universal
 
 ## Composition
 
-Public part of the JHipster application is Tour of Heroes, which is imported as a module.
-Private part is a typical JHipster Administration / Entities set of features.
-Backend offers a public API to be consumed by Tour of Heroes.
+- Public part of the JHipster application is Tour of Heroes, which is imported as a module.
+- Private part is a typical JHipster Administration / Entities set of features.
+- Backend offers a public API to be consumed by Tour of Heroes.
 
 ## The setup
 
-JHipster v6.9.1
-Monolithic application
-No database
-No cache
-Maven
-Angular
-No internationalization
-No Lazy-Loading
+- JHipster v6.9.1
+- Monolithic application
+- No database
+- No cache
+- Maven
+- Angular
+- No internationalization
+- No Lazy-Loading
 
 ## Angular Universal Integration
 
