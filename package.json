@@ -120,7 +120,7 @@
     "webpack:prod": "npm run cleanup && npm run webpack:prod:main && npm run clean-www",
     "webpack:test": "npm run test",
     "dev:ssr": "ng run jhipster:serve-ssr",
-    "serve:ssr": "node target/classes/static/server/main.js",
+    "serve:ssr": "node target/classes/static/server/en-US/main.js",
     "build:ssr": "ng build --prod && ng run jhipster:server:production"
   },
   "jestSonar": {

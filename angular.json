@@ -78,7 +78,8 @@
             "production": {
               "outputHashing": "media",
               "sourceMap": false,
-              "optimization": true
+              "optimization": true,
+              "localize": true
             }
           }
         },
