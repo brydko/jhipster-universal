@@ -68,11 +68,8 @@
           }
         },
         "server": {
-          "builder": "@angular-builders/custom-webpack:server",
+          "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "customWebpackConfig": {
-              "path": "./webpack/webpack.server.js"
-            },
             "outputPath": "target/classes/static/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
