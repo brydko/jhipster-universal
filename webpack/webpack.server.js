@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const utils = require('./utils.js');
 
 module.exports = {
   mode: 'none',
@@ -7,7 +8,10 @@ module.exports = {
     main: './server.ts',
   },
   target: 'node',
-  resolve: { extensions: ['.ts', '.js'] },
+  resolve: { 
+    extensions: ['.ts', '.js'],
+    alias: utils.mapTypescriptAliasToWebpackAlias() 
+  },
   optimization: {
     minimize: true,
   },
@@ -39,6 +43,6 @@ module.exports = {
       /(.+)?express(\\|\/)(.+)?/,
       path.resolve(__dirname, '../src/main/webapp'),
       {}
-    ),
+    )
   ],
 };

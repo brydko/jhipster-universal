@@ -7,6 +7,6 @@
   },
   "files": ["src/main/webapp/app/app.main.server.ts", "server.ts"],
   "angularCompilerOptions": {
-    "entryModule": "./src/main/webapp/app/app.server.module#JhipsterAppServerModule"
+    "entryModule": "src/main/webapp/app/app.server.module#JhipsterAppServerModule"
   }
 }

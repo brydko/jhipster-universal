@@ -3,7 +3,7 @@
     "promptValues": {
       "packageName": "tech.jhipster"
     },
-    "jhipsterVersion": "6.9.1",
+    "jhipsterVersion": "6.10.0",
     "applicationType": "monolith",
     "baseName": "jhipster",
     "packageName": "tech.jhipster",
