@@ -20,6 +20,8 @@
       }
     ],
     "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/ban-ts-ignore": "off"
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "no-console": "off",
+    "@typescript-eslint/camelcase": ["warn"]
   }
 }

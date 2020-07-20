@@ -11,6 +11,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.concurrent.TimeUnit;
 
+// TO BE DELETED
+/*
 @Configuration
 @Profile({JHipsterConstants.SPRING_PROFILE_PRODUCTION})
 public class StaticResourcesWebConfiguration implements WebMvcConfigurer {
@@ -47,3 +49,4 @@ public class StaticResourcesWebConfiguration implements WebMvcConfigurer {
     }
 
 }
+*/

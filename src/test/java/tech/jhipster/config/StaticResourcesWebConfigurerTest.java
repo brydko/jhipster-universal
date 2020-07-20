@@ -12,10 +12,11 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 
 import java.util.concurrent.TimeUnit;
 
-import static tech.jhipster.config.StaticResourcesWebConfiguration.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
+// TO BE DELETED
+/*
 public class StaticResourcesWebConfigurerTest {
     public static final int MAX_AGE_TEST = 5;
     public StaticResourcesWebConfiguration staticResourcesWebConfiguration;
@@ -78,3 +79,4 @@ public class StaticResourcesWebConfigurerTest {
             .isEqualTo(cacheExpected.getHeaderValue());
     }
 }
+*/
