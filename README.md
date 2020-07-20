@@ -1,6 +1,6 @@
 # JHipsterUniversal
 
-Experimental JHipster application with Angular Universal
+Experimental JHipster application with Angular Universal. The goal of this project is to develop a guide for JHipster SSR-enabled applications.
 
 ## Composition
 
@@ -10,7 +10,7 @@ Experimental JHipster application with Angular Universal
 
 ## The setup
 
-- JHipster v6.9.1
+- JHipster v6.10.0
 - Monolithic application
 - No database
 - No cache
@@ -19,15 +19,15 @@ Experimental JHipster application with Angular Universal
 - No internationalization
 - No Lazy-Loading
 
-## Angular Universal Integration
+## Angular Universal + JHipster Integration
 
-The steps to add angular universal are the ones explained [here](https://github.com/angular/angular-cli/wiki/stories-universal-rendering). Although the guide is a little bit outdated, it can still be used to follow the steps.
+The steps to add Angular Universal to any Angular CLI project are the ones explained [here](https://github.com/angular/angular-cli/wiki/stories-universal-rendering). Although the guide is a little bit outdated, it can still be useful. Following instructions explain how to add Angular Universal to a JHipster project. These steps are based on the official guide.
 
 - **Install Dependencies**
 
 ```shell
-npm install --save @angular/animations@9.1.3 @angular/platform-server@9.1.3 @nguniversal/express-engine@9.1.1 http-proxy-middleware@1.0.4
-npm install --save-dev @nguniversal/builders@9.1.1 @types/express@4.17.6 @angular-builders/custom-webpack@9.2.0 @angular-devkit/build-angular@0.901.9
+npm install --save @angular/animations@10.0.0 @angular/platform-server@10.0.0 @nguniversal/express-engine@10.0.0 http-proxy-middleware@1.0.4
+npm install --save-dev @nguniversal/builders@10.0.0 @types/express@4.17.6 @angular-builders/custom-webpack@10.0.0-beta.1 @angular-devkit/build-angular@0.1000.0
 ```
 
 - **app.main.ts**
@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 - **Config files**
 
-app.module.ts, app.server.module.ts, app.main.server.ts, tsconfig.server.json --- same changes as described in the guide above.
+app.module.ts, app.server.module.ts, app.main.server.ts, tsconfig.server.json --- same changes as described in the guide above. Angular 10 introduces tsconfig.base.json, which takes the contents of tsconfig.json.
 
 - **angular.json**
 
-Before adding a server target to **angular.json**, jhipster project was converted to Angular CLI. The required changes may be found in the [PR #10624](https://github.com/jhipster/generator-jhipster/pull/10624). After this, at least two new targets should be added to **angular.json**: server, serve-ssr and, optionally, prerender.
+Before adding a server target to **angular.json**, jhipster project was converted to Angular CLI. The required changes may be found in the [PR #10624](https://github.com/jhipster/generator-jhipster/pull/10624). After this, at least two new targets should be added to **angular.json**: server, serve-ssr and, optionally, prerender. JHipster 7 should be using CLI by default.
 
 - **server.ts**
 
@@ -68,28 +68,41 @@ Three common scripts were added: "dev:ssr", "serve:ssr" and "build:ssr".
 
 Few things to mention here.
 
-- **localize**
-
 ```shell
 npm run build:ssr
 ```
 
-Because of an issue with **@angular/localize** after running **build:ssr** you should add the contents of the file **LOCALIZE** located at the root of the project to the generated file **jhipster-universal/target/classes/static/server/main.js**. Just copy the contents of file LOCALIZE and paste it to the beginnging of main.js.
+This command will compile the project and will generate target/classes/static/server/en-US/main.js file. Note that en-US is the defaut locale in Angular. Full i18 support will come soon.
+
+After compiling, the application may be started by running:
 
 ```shell
 npm run serve:ssr
 ```
 
+Backend should be started separately.
+
+---
+
+Also you may start the project in 'prod' mode.
+
+```shell
+./mvnw -Pprod
+```
+
+start express.js server instance separately by running
+
+```shell
+node target/classes/static/server/en-US/main.js
+```
+
+---
+
+Request SSR content on localhost:9000
+
 - **scp**
 
-Once running, express server will deliver rendered html to the browser. However, bootstrapping Angular files may be blocked by the scp policy of your browser. If you disable scp, Angular will bootstrap the html and the application will work in exactly the same way it does usually.
-
-Start the backend separately.
-
-## Issues
-
-- localize
-- scp
+Once running, express server will deliver rendered html to the browser. However, bootstrapping Angular files may be blocked by the scp policy of your browser.
 
 ## TODO
 
