@@ -30,16 +30,14 @@ export function app(): any {
   server.use('/api/**', createProxyMiddleware({ target: 'http://localhost:8080', changeOrigin: true }));
   server.use('/management/**', createProxyMiddleware({ target: 'http://localhost:8080', changeOrigin: true }));
 
-  // CSR may be enabled for certain paths by sending index.html without any rendered content
-  /*
-  server.get('/admin', function (req, res) {
-    res.sendFile(join(distFolder,'index.html'));
+  // enable CSR for private routes
+  server.get('/admin/*', (req, res) => {
+    res.sendFile(join(distFolder, 'index.html'));
   });
-  
-  server.get('/hero', function (req, res) {
-    res.sendFile(join(distFolder,'index.html'));
+
+  server.get('/hero*', (req, res) => {
+    res.sendFile(join(distFolder, 'index.html'));
   });
-  */
 
   // Serve static files from /browser
   server.get(
