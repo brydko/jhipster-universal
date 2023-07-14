@@ -40,7 +40,7 @@
   "devDependencies": {
     "@angular-builders/custom-webpack": "10.0.0-beta.1",
     "@angular-devkit/build-angular": "0.1000.0",
-    "@angular/cli": "10.0.0",
+    "@angular/cli": "16.1.4",
     "@angular/compiler-cli": "10.0.0",
     "@ngtools/webpack": "10.0.0",
     "@nguniversal/builders": "10.0.0",
@@ -63,7 +63,7 @@
     "eslint-loader": "4.0.2",
     "file-loader": "6.0.0",
     "friendly-errors-webpack-plugin": "1.7.0",
-    "generator-jhipster": "6.10.0",
+    "generator-jhipster": "8.0.0-beta.2",
     "html-loader": "1.1.0",
     "html-webpack-plugin": "4.3.0",
     "husky": "4.2.5",
